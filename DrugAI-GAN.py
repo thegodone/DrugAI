@@ -197,7 +197,7 @@ for i in range(5): # change this to 10 (20 before) for debug mode
     dloss=trainDis(shuffleData)
     print("Pre Training Discrimator "+str(dloss)+"\n")
  
-
+# real training
 for episode in range(episodes):
     print("Epoch "+str(episode)+"/"+str(episodes))
     trainDis()
