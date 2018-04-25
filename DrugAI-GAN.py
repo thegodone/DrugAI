@@ -210,14 +210,10 @@ for episode in range(episodes):
    
     if episode%(episodes/100)==0:
         
-        #G.save(os.getcwd()+'/output/Gen.h5')
-        #D.save(os.getcwd()+'/output/Dis.h5')
-        #GAN.save(os.getcwd()+'/output/Gan.h5')
-        
         #for saving files in floydhub output directory              
-        G.save("/output/Gen_mc.h5")
-        D.save("/output/Dis_mc.h5")
-        GAN.save("/output/Gan_mc.h5")
+        G.save("output/Gen_mc.h5")
+        D.save("output/Dis_mc.h5")
+        GAN.save("output/Gan_mc.h5")
         
         
     if episode%(episodes/600)==0:
