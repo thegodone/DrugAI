@@ -66,11 +66,11 @@ for i in range(0,ncv):
 
     # creating model
     model = Sequential()
-    model.add(Dense(X_train_dtm.shape[1], input_dim=X_train_dtm.shape[1], init='normal', activation='relu'))
-    model.add(Dense(100, init='normal', activation='relu'))
+    model.add(Dense(X_train_dtm.shape[1], input_dim=X_train_dtm.shape[1], kernel_initializer="normal", activation="relu"))
+    model.add(Dense(100, kernel_initializer="normal", activation="relu"))
     model.add(Dropout(0.2))
-    model.add(Dense(150, init='normal', activation='relu'))
-    model.add(Dense(y_train.shape[1],init='normal', activation='softmax'))
+    model.add(Dense(150, kernel_initializer="normal", activation="relu"))
+    model.add(Dense(y_train.shape[1],kernel_initializer="normal", activation='softmax'))
 
     #compiling model
     model.compile(loss='categorical_crossentropy', optimizer='adam',metrics=['accuracy'])
@@ -82,7 +82,7 @@ for i in range(0,ncv):
     X_test_dtm
 
     # Fit the model
-    history=model.fit(X_train_dtm.toarray(), y_train,validation_data=(X_test_dtm.toarray(),y_test), shuffle=True, nb_epoch=epoch, batch_size=bs)
+    history=model.fit(X_train_dtm.toarray(), y_train,validation_data=(X_test_dtm.toarray(),y_test), shuffle=True, epochs=epoch, batch_size=bs)
 
     # make class predictions for X_test_dtm
     #y_pred_class = model.predict(X_test_dtm.toarray())

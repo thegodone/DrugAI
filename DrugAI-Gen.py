@@ -115,7 +115,7 @@ model.load_weights("drugai.h5")
 #start training
 
 
-model.fit(x_dash,y_dash, nb_epoch=20)
+model.fit(x_dash,y_dash, epochs=20)
 ##Epoch 20/20
 ##335/335 [==============================] - 31s - loss: 1.3319
 

@@ -112,7 +112,7 @@ def trainDis(data=None,mc=None):
         # Train on fake data        
         fake_data= G.predict(x_dash)
         targets = np.zeros(x_dash.shape[0]).astype(int)
-        Dloss=D.fit(fake_data, targets,nb_epoch=1) 
+        Dloss=D.fit(fake_data, targets,epochs=1) 
              
     elif data is None and mc=="mc":
         #preventing mode collapse
@@ -120,12 +120,12 @@ def trainDis(data=None,mc=None):
         fake_ydata=np.copy(y_dash)
         shuffle3D(fake_ydata)
         targets = np.zeros(x_dash.shape[0]).astype(int)
-        Dloss=D.fit(fake_ydata, targets,nb_epoch=1)    
+        Dloss=D.fit(fake_ydata, targets,epochs=1)    
             
     else:
         # Train on real data
         targets = np.ones(x_dash.shape[0]).astype(int)
-        Dloss=D.fit(data,targets,nb_epoch=1)    
+        Dloss=D.fit(data,targets,epochs=1)    
            
     #print Dloss.history.keys()
     return Dloss.history['loss'][0]
@@ -133,7 +133,7 @@ def trainDis(data=None,mc=None):
 def trainGAN():  	
 	#train Generator    
 	target = np.ones(x_dash.shape[0]).astype(int)
-	gan_loss = GAN.fit(x_dash, target,nb_epoch=1)
+	gan_loss = GAN.fit(x_dash, target,epochs=1)
 	
 	return gan_loss.history['loss'][0]
     
