@@ -36,7 +36,7 @@ def Gan(PATH="GAN.h5", lr=0.00001):
 
 
 # read csv file
-data = pd.read_csv('stahl-dataset.csv')
+data = pd.read_csv('../stahl-dataset.csv')
 data = data.reindex(np.random.permutation(data.index))
 # data=data.head(30)
 Y = data.SMILES
