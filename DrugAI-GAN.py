@@ -138,7 +138,7 @@ def trainGAN():
 	return gan_loss.history['loss'][0]
     
 ##read csv file
-data = pd.read_csv('stahl.csv')
+data = pd.read_csv('stahl-dataset.csv')
 data=data.reindex(np.random.permutation(data.index))
 #data=data.head(30)  
 Y=data.SMILES
@@ -191,7 +191,7 @@ print("Dis output "+str(D.output_shape))
 D.trainable=True
 
 #pre training
-for i in range(20):
+for i in range(5): # change this to 10 (20 before) for debug mode
     shuffleData = np.random.permutation(y_dash)
     trainDis()
     dloss=trainDis(shuffleData)
@@ -206,10 +206,7 @@ for episode in range(episodes):
     disloss=trainDis(mc="mc")      
     ganloss=trainGAN()    
     
-	
     print("D loss="+str(disloss)+" GAN loss="+str(ganloss))
-    
-    
    
     if episode%(episodes/100)==0:
         
