@@ -30,7 +30,7 @@ epoch=20
 #batch size
 bs=15
 #number of cross validation
-ncv=10
+ncv=5
 
 
 # read file into pandas from the working directory
@@ -74,8 +74,6 @@ for i in range(0,ncv):
 
     #compiling model
     model.compile(loss='categorical_crossentropy', optimizer='adam',metrics=['accuracy'])
-
-
 
     # transform testing data (using fitted vocabulary) into a document-term matrix
     X_test_dtm = vect.transform(X_test)
