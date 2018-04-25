@@ -26,7 +26,7 @@ mi=1
 #maximum range
 mx=1
 #epoch
-epoch=20
+epoch=100
 #batch size
 bs=15
 #number of cross validation
