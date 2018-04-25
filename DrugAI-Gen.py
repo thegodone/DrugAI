@@ -10,6 +10,7 @@ from keras.models import Sequential
 from keras.layers import Dense,LSTM,Dropout
 from keras.layers.wrappers import TimeDistributed
 import pandas as pd
+import os
 
 ##seed for random number reproduction
 np.random.seed(2017)
