@@ -5,7 +5,7 @@ from keras.layers import Dense,Dropout
 import pandas as pd
 import numpy as np
 from time import sleep
-import h5py
+import h5py, os
 from sklearn.metrics import roc_auc_score
 from sklearn import metrics
 from sklearn.feature_extraction.text import CountVectorizer
