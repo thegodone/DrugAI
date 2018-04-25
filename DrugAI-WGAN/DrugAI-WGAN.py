@@ -118,19 +118,16 @@ for epoch in range(epochs):
 
         # 
         # for saving files in floydhub output directory
-        G.save("output/Gen1.h5")
-        D.save("output/Dis1.h5")
-        GAN.save("output/Gan1.h5")
-        # G.save(os.getcwd()+'/output/Gen.h5')
-        # D.save(os.getcwd()+'/output/Dis.h5')
-        # GAN.save(os.getcwd()+'/output/Gan.h5')
+        G.save("../output/Gen1.h5")
+        D.save("../output/Dis1.h5")
+        GAN.save("../output/Gan1.h5")
 
         # For Prediction
         # start Prediction
 
         Ghash, checkG = Generator(x_dash, y_dash)
         print("Prediction")
-        Ghash.load_weights('output/Gen1.h5')
+        Ghash.load_weights('../output/Gen1.h5')
         x_pred = [[0, 0, 0, 1, 0, 0],
                   [0, 1, 0, 0, 0, 0],
                   [0, 0, 0, 0, 0, 1]]
