@@ -12,8 +12,11 @@ Contact: https://github.com/gananath
 '''
 
 from drugai import *
-# import os.path
+import os
 np.random.seed(2017)
+
+if not os.path.exists(os.getcwd()+'/output/'):
+    os.makedirs(os.getcwd()+'/output/')
 
 
 def Gan(PATH="GAN.h5", lr=0.00001):
@@ -33,7 +36,7 @@ def Gan(PATH="GAN.h5", lr=0.00001):
 
 
 # read csv file
-data = pd.read_csv('stahl.csv')
+data = pd.read_csv('stahl-dataset.csv')
 data = data.reindex(np.random.permutation(data.index))
 # data=data.head(30)
 Y = data.SMILES

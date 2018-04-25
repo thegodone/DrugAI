@@ -61,8 +61,13 @@ def smiles_output(s):
         smiles=np.append(smiles,j)
     return smiles
 
+
+if not os.path.exists(os.getcwd()+'/output/'):
+    os.makedirs(os.getcwd()+'/output/')
+
 ##read csv file
-data = pd.read_csv('stahl.csv')
+
+data = pd.read_csv('stahl-dataset.csv')
 data=data.reindex(np.random.permutation(data.index))
 Y=data.SMILES
 Y.head()
@@ -108,14 +113,15 @@ model.load_weights("drugai.h5")
 
 ##For Training uncomment the training section
 #start training
-'''
+
+
 model.fit(x_dash,y_dash, nb_epoch=20)
 ##Epoch 20/20
 ##335/335 [==============================] - 31s - loss: 1.3319
 
 model.save('drugai.h5')
 
-'''
+
 #End training
 
 ##For Prediction

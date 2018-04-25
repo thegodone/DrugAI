@@ -13,6 +13,9 @@ from sklearn.cross_validation import train_test_split
 
 
 
+if not os.path.exists(os.getcwd()+'/output/'):
+    os.makedirs(os.getcwd()+'/output/')
+
 #seed for random number reproduction
 np.random.seed(2016)
 
@@ -31,7 +34,7 @@ ncv=10
 
 
 # read file into pandas from the working directory
-data = pd.read_csv('/home/gananath/Desktop/stahl-dataset.csv')
+data = pd.read_csv('stahl-dataset.csv')
 data=data.reindex(np.random.permutation(data.index))
 X=data.SMILES
 #X=X.astype('S32')
@@ -108,7 +111,7 @@ for i in range(0,ncv):
 
 #Saving models as h5 files
 nam="Smiles_model" + str(mi) + "-" + str(mx) + ".h5"
-fpath="/home/gananath/Desktop/" + str(nam)
+fpath="output/" + str(nam)
 model.save(fpath)
 
 #Mean calculation
